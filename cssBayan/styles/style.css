@@ -8,10 +8,6 @@ body {
   background-color: #f5f5dc;
 }
 
-.fa-xmark {
-  padding-right: 0.5rem;
-}
-
 .title {
   font-size: 4rem;
 }
@@ -23,20 +19,28 @@ body {
   padding: 0rem 1.5rem;
 }
 
-.mem-wrapper {
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
+.main-section {
+  cursor: pointer;
 }
 
-.main-section:hover > .mem-wrapper > .mem-input:not(:checked) ~ label{
+.mem-label {
+  cursor: pointer;
+}
+
+.mem-wrapper {
+  border-top: 0.063rem solid grey;
+  border-bottom: 0.063rem solid grey;
+}
+
+.main-section:hover > .mem-wrapper > .mem-input:not(:checked) ~ label {
   color: black;
 }
 
-.main-section .mem-wrapper .icons{
+.main-section .mem-wrapper .fa-plus {
   display: none;
 }
 
-.main-section:hover > .mem-wrapper .icons{
+.main-section:hover > .mem-wrapper .fa-plus {
   display: inline;
 }
 
@@ -58,16 +62,17 @@ body {
   color: blue;
 }
 
-.mem-input:not(:checked) ~ label .mem-input__body{
+.mem-input:not(:checked) ~ label .mem-input__body {
   display: none;
 }
 
 .mem-input:checked + label .fa-plus {
-  display: none;
+  transform: rotate(45deg);
+  padding-right: 0.5rem;
 }
 
-.mem-input:not(:checked) + label .fa-xmark {
-  display: none;
+.mem-input:checked + label:active {
+  opacity: 0.7;
 }
 
 .mem-input__body {
@@ -77,24 +82,38 @@ body {
   padding: 0.5rem;
 }
 
-.mem-input__body > img{
+.mem-input__body > img {
   width: 20rem;
 }
 
-.mem-input:not(:checked) ~ label:hover .mem-input__body{
+.mem-input:not(:checked) ~ label:hover .mem-input__body {
   display: flex;
+  transition: 0.3s;
+  animation-name: out;
+  animation-duration: 0.5s;
 }
 
-.mem-input:not(:checked) ~ label:active{
+.mem-input:not(:checked) ~ label:hover .fa-plus {
+  transition: 0.3s;
+  padding-right: 0.5rem;
+  transform: rotate(45deg);
+}
+
+.mem-input:not(:checked) ~ label:active {
   opacity: 0.7;
 }
 
-.mem-input:not(:checked) ~ label:active .mem-input__header{
+.mem-input:not(:checked) ~ label:active .mem-input__header {
   opacity: 0.7;
   color: blue;
 }
 
-.mem-input:checked ~ label {
-  transform: rotateX('angle');
-  transition: 50  ms;
+@keyframes out {
+  0% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
