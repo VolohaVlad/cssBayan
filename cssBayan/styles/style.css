@@ -19,14 +19,6 @@ body {
   padding: 0rem 1.5rem;
 }
 
-.main-section {
-  cursor: pointer;
-}
-
-.mem-label {
-  cursor: pointer;
-}
-
 .mem-wrapper {
   border-top: 0.063rem solid grey;
   border-bottom: 0.063rem solid grey;
